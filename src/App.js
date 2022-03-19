@@ -41,12 +41,21 @@ const App = () => {
     //setExpenses([expense, ...prevExpenses]);
   };
 
+  // return (
+  //   <div>
+  //     <h2>Let's get started!</h2>
+  //     <Expenses items={expenses} />
+  //   </div>
+  // );
+  // 위 코드의 원래 형태 (behine the scene)
   // return React.createElement(
   //   'div',
   //   {},
   //   React.createElement('h2', {}, "Let's get started!"),
   //   React.createElement(Expenses, { items: expenses })
   // );
+
+
 
   return (
     <div>

@@ -6,6 +6,8 @@ const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState('');
   const [enteredAmount, setEnteredAmount] = useState('');
   const [enteredDate, setEnteredDate] = useState('');
+
+  // 아래와 같이 위 state를 하나의 state로 아래와 같이 바꿔 선언할수 있다
   // const [userInput, setUserInput] = useState({
   //   enteredTitle: '',
   //   enteredAmount: '',
@@ -13,14 +15,18 @@ const ExpenseForm = (props) => {
   // });
 
   const titleChangeHandler = (event) => {
-    setEnteredTitle(event.target.value);
+    // setEnteredTitle(event.target.value);
+
+    // 아래와 같은 접근을 사용하면 outdated 또는 incorrect State를 참조할 가능성이 있음
     // setUserInput({
     //   ...userInput,
     //   enteredTitle: event.target.value,
     // });
-    // setUserInput((prevState) => {
-    //   return { ...prevState, enteredTitle: event.target.value };
-    // });
+
+    // 이전 상태값에 의존적일떄 가장 안전하고 가장 최신의 state를 얻는 방법
+    setUserInput((prevState) => {
+      return { ...prevState, enteredTitle: event.target.value };
+    });
   };
 
   const amountChangeHandler = (event) => {
@@ -48,7 +54,10 @@ const ExpenseForm = (props) => {
       date: new Date(enteredDate),
     };
 
+    // child => parent 로 새로 입력된 expenseData 전달
     props.onSaveExpenseData(expenseData);
+
+    // clear values
     setEnteredTitle('');
     setEnteredAmount('');
     setEnteredDate('');

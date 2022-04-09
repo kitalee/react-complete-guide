@@ -15,7 +15,7 @@ const ExpenseForm = (props) => {
   // });
 
   const titleChangeHandler = (event) => {
-    // setEnteredTitle(event.target.value);
+     setEnteredTitle(event.target.value);
 
     // 아래와 같은 접근을 사용하면 outdated 또는 incorrect State를 참조할 가능성이 있음
     // setUserInput({
@@ -24,9 +24,9 @@ const ExpenseForm = (props) => {
     // });
 
     // 이전 상태값에 의존적일떄 가장 안전하고 가장 최신의 state를 얻는 방법
-    setUserInput((prevState) => {
-      return { ...prevState, enteredTitle: event.target.value };
-    });
+    // setUserInput((prevState) => {
+    //   return { ...prevState, enteredTitle: event.target.value };
+    // });
   };
 
   const amountChangeHandler = (event) => {
